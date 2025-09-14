@@ -1,6 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=Cinzel:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@400;600;800&family=Audiowide&display=swap');
 
 @import "tailwindcss";
+
+/* Desert/Dune Color Palette CSS Variables */
+:root {
+  --sand-light: #f4e4bc;
+  --sand-medium: #d4b896;
+  --sand-dark: #b8956a;
+  --copper: #b7741f;
+  --bronze: #cd7f32;
+  --burnt-orange: #cc5500;
+  --rust: #b7410e;
+  --dune-blue: #4a6741;
+  --desert-teal: #5f8a8b;
+  --spice-gold: #d4af37;
+  --mystical-purple: #6a4c93;
+  --shadow-black: #1a1612;
+  --warm-black: #2d2318;
+}
 
 /* Custom fonts and base styles */
 
@@ -10,8 +27,9 @@
 
 body {
   margin: 0;
-  font-family: 'Cinzel', serif;
-  background: #000;
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--shadow-black);
+  color: var(--sand-light);
   overflow-x: hidden;
   /* Improve scrolling performance on mobile */
   -webkit-overflow-scrolling: touch;
@@ -23,28 +41,29 @@ body.modal-open {
   overflow: hidden !important;
   position: fixed;
   width: 100%;
+  height: 100vh;
 }
 
 /* Removed heavy animations for better performance */
 
 /* Removed heavy animations for better performance */
 
-/* Custom scrollbar */
+/* Custom scrollbar with desert theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--warm-black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #dc2626, #7f1d1d);
+  background: linear-gradient(180deg, var(--copper), var(--rust));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ef4444, #991b1b);
+  background: linear-gradient(180deg, var(--bronze), var(--burnt-orange));
 }
 
 /* Loading animation for images */
@@ -74,25 +93,29 @@ img:hover {
 
 /* Removed heavy animations for better performance */
 
-/* Typography improvements */
-.font-metal {
-  font-family: 'Metal Mania', cursive;
+/* Typography improvements - Desert/Sci-Fi Fonts */
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
 }
 
-.font-creepy {
-  font-family: 'Creepster', cursive;
+.font-audiowide {
+  font-family: 'Audiowide', cursive;
 }
 
-/* Dark theme selections */
+.font-exo {
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Desert theme selections */
 ::selection {
-  background: rgba(220, 38, 38, 0.3);
-  color: white;
+  background: rgba(212, 175, 55, 0.4);
+  color: var(--shadow-black);
 }
 
 /* Focus states for accessibility */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #dc2626;
+  outline: 2px solid var(--copper);
   outline-offset: 2px;
 }
 
@@ -153,4 +176,80 @@ a:focus-visible {
   .overflow-x-auto::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Desert/Burning Man Theme Effects */
+.sand-texture {
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--sand-medium) 0%, transparent 2%),
+    radial-gradient(circle at 75% 75%, var(--copper) 0%, transparent 1%),
+    radial-gradient(circle at 50% 50%, var(--sand-dark) 0%, transparent 1.5%);
+  background-size: 20px 20px, 15px 15px, 25px 25px;
+}
+
+.dune-gradient {
+  background: linear-gradient(135deg, 
+    var(--warm-black) 0%, 
+    var(--shadow-black) 20%, 
+    var(--rust) 40%, 
+    var(--copper) 60%, 
+    var(--sand-dark) 80%, 
+    var(--sand-medium) 100%);
+}
+
+.spice-glow {
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.2),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.desert-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.desert-shimmer::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, var(--spice-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.desert-shimmer:hover::before {
+  opacity: 0.3;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Heat wave effect */
+.heat-wave {
+  position: relative;
+}
+
+.heat-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  opacity: 0;
+  animation: heatWave 4s ease-in-out infinite;
+}
+
+@keyframes heatWave {
+  0%, 100% { opacity: 0; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.02); }
 }

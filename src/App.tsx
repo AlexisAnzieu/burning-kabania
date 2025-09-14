@@ -84,6 +84,10 @@ function App() {
 
   // Modal animation functions
   const openModal = (artistId: string) => {
+    // Store current scroll position before opening modal
+    const scrollY = window.scrollY;
+    document.body.style.top = `-${scrollY}px`;
+
     setSelectedArtist(artistId);
     setIsModalOpen(true);
     // Hide body scrollbars when modal opens
@@ -96,6 +100,12 @@ function App() {
     setIsModalVisible(false);
     // Restore body scrollbars when modal closes
     document.body.classList.remove("modal-open");
+
+    // Restore scroll position
+    const scrollY = document.body.style.top;
+    document.body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+
     // Wait for animation to complete before unmounting
     setTimeout(() => {
       setIsModalOpen(false);
@@ -106,18 +116,14 @@ function App() {
   // Cleanup effect to restore body overflow when component unmounts
   useEffect(() => {
     return () => {
-      // Restore body overflow on component unmount
+      // Restore body overflow and position on component unmount
       document.body.classList.remove("modal-open");
+      document.body.style.top = "";
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      {/* Simplified background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-900/10 via-black to-purple-900/10"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-amber-950 via-stone-900 to-orange-950 text-amber-50 relative">
       {/* Hero Section */}
       <header className="relative z-10 w-full py-8 md:py-6 flex flex-col items-center">
         <div className="text-center mb-2">
@@ -127,23 +133,23 @@ function App() {
               <img
                 src="/og.png"
                 alt="Burning Kabania"
-                className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-red-500/50 shadow-2xl shadow-red-500/30"
+                className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-amber-500/60 shadow-2xl"
               />
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl md:text-7xl font-black text-transparent bg-gradient-to-r from-red-500 via-orange-500 to-red-600 bg-clip-text drop-shadow-2xl tracking-wider uppercase mb-4">
+          <h1 className="text-3xl sm:text-6xl md:text-7xl font-black text-transparent bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 bg-clip-text drop-shadow-2xl tracking-wider uppercase mb-4 font-orbitron">
             Burning Kabania
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent w-20"></div>
-            <p className="text-xl sm:text-2xl md:text-4xl font-bold text-red-400 tracking-widest">
+            <div className="h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent w-20"></div>
+            <p className="text-xl sm:text-2xl md:text-4xl font-bold text-amber-400 tracking-widest font-audiowide">
               19-21 SEPTEMBRE 2025
             </p>
-            <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent w-20"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent w-20"></div>
           </div>
-          <p className="text-lg sm:text-xl px-4 text-gray-300 font-medium tracking-wide">
-            À LA RENCONTRE DES ONDES SONORES PAR DELÀ LES TÉNÈBRES
+          <p className="text-lg sm:text-xl px-4 text-amber-200 font-medium tracking-wide font-exo">
+            DANS LES SABLES DU TEMPS ET LES ÉCHOS DE L'ÉTERNITÉ
           </p>
         </div>
       </header>
@@ -151,81 +157,95 @@ function App() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 pb-12 pt-10">
         {/* Informations Principales Section */}
         <section className="space-y-6 mb-12">
-          <h2 className="text-3xl font-black text-red-400 mb-8 text-center uppercase tracking-wider">
-            Informations Principales
+          <h2 className="text-3xl font-black text-amber-400 mb-8 text-center uppercase tracking-wider font-orbitron">
+            Codex du Désert
           </h2>
-          <div className="bg-gradient-to-b from-gray-900/80 to-black/80 border border-gray-700 rounded-lg p-6 md:p-8 backdrop-blur-sm">
+          <div className="bg-gradient-to-b from-amber-900/80 to-stone-900/80 border border-amber-700/50 rounded-lg p-6 md:p-8 backdrop-blur-sm">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left Column - Dress Codes & Activities */}
               <div className="space-y-6">
                 {/* Dress Code Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                    <span>👗</span> Consignes tenues
+                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                    <span>🏜️</span> Tenues du Désert
                   </h3>
-                  <div className="space-y-3 text-gray-300">
+                  <div className="space-y-3 text-amber-200 text-base">
                     <div className="flex items-start gap-3">
-                      <span className="text-red-400 font-bold">•</span>
-                      <span>
-                        <strong className="text-white">Vendredi soir :</strong>{" "}
-                        sortez vos tenues noires Burning Man 🖤
+                      <span className="text-amber-400 font-bold text-lg">
+                        ⚡
+                      </span>
+                      <span className="text-base">
+                        <strong className="text-amber-100">
+                          Vendredi soir :
+                        </strong>{" "}
+                        Révélez vos tenues mystiques du désert noir 🖤
                       </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-red-400 font-bold">•</span>
-                      <span>
-                        <strong className="text-white">Samedi journée :</strong>{" "}
-                        misez sur le confort, des activités vous attendent !
+                      <span className="text-amber-400 font-bold text-lg">
+                        ⚡
+                      </span>
+                      <span className="text-base">
+                        <strong className="text-amber-100">
+                          Samedi journée :
+                        </strong>{" "}
+                        Confort du nomade, les épreuves du désert vous attendent
+                        !
                       </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-red-400 font-bold">•</span>
-                      <span>
-                        <strong className="text-white">Samedi soir :</strong>{" "}
-                        place à l'imagination 🤪
+                      <span className="text-amber-400 font-bold text-lg">
+                        ⚡
+                      </span>
+                      <span className="text-base">
+                        <strong className="text-amber-100">
+                          Samedi soir :
+                        </strong>{" "}
+                        Libérez l'artiste visionnaire en vous 🎭
                       </span>
                     </div>
                   </div>
-                  <div className="mt-4 p-4 bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      <strong className="text-red-400">
+                  <div className="mt-4 p-4 bg-gradient-to-r from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
+                    <p className="text-amber-200 text-base leading-relaxed">
+                      <strong className="text-amber-300">
                         Esprit Burning Man :
                       </strong>{" "}
-                      osez les looks les plus improbables, libérez votre
-                      créativité, portez enfin ce que vous avez toujours rêvé
-                      d'oser mettre !
+                      Osez l'impossible, transcendez les conventions, incarnez
+                      vos visions les plus audacieuses dans les sables du temps
+                      !
                     </p>
                   </div>
                 </div>
 
                 {/* What to Bring Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                    <span>🎒</span> À apporter
+                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                    <span>🎒</span> Provisions du Nomade
                   </h3>
-                  <div className="text-xs text-gray-400 mb-3 italic">
-                    Principe du "Leave no trace" comme au Burning Man : tout ce
-                    que vous amenez doit repartir avec vous
+                  <div className="text-sm text-amber-300 mb-3 italic">
+                    Principe du "Leave no trace" - Comme dans le désert sacré :
+                    tout ce qui entre dans l'oasis doit en ressortir
                   </div>
-                  <div className="grid grid-cols-1 gap-2 text-sm">
+                  <div className="grid grid-cols-1 gap-2 text-base">
                     {[
-                      "Literie, couverture ou sac de couchage",
-                      "Oreiller ou taie d'oreiller (coussins disponibles sur place)",
-                      "Serviette de bain",
-                      "Trousse de toilette",
-                      "Lampe frontale ou lampe de poche (pour circuler la nuit)",
-                      "Gourde réutilisable 💧 (l'eau est potable)",
-                      "Pour les repas : assiette + couverts + gobelet réutilisable",
+                      "Literie du voyageur, couverture ou sac de couchage",
+                      "Oreiller du rêveur ou taie d'oreiller (coussins disponibles dans l'oasis)",
+                      "Serviette des ablutions",
+                      "Trousse de toilette du nomade",
+                      "Lampe frontale ou torche mystique (pour naviguer dans les ténèbres)",
+                      "Gourde réutilisable 💧 (l'eau de l'oasis est pure)",
+                      "Pour les festins : assiette + couverts + gobelet de cérémonie réutilisable",
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2">
-                        <span className="text-red-400 text-xs mt-1">✓</span>
-                        <span className="text-gray-300">{item}</span>
+                        <span className="text-amber-400 text-sm mt-1">⟡</span>
+                        <span className="text-amber-200 text-base">{item}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 p-3 bg-green-900/20 rounded-lg border border-green-500/30">
-                    <p className="text-green-300 text-sm">
-                      💧 Merci d'éviter les bouteilles en plastique !
+                  <div className="mt-3 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+                    <p className="text-emerald-300 text-base">
+                      💧 Le désert nous enseigne la préservation - évitez le
+                      plastique !
                     </p>
                   </div>
                 </div>
@@ -235,55 +255,59 @@ function App() {
               <div className="space-y-6">
                 {/* Meals Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                    <span>🍽️</span> Repas inclus (service traiteur)
+                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                    <span>🍽️</span> Festins de l'Oasis
                   </h3>
                   <div className="space-y-3">
-                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg p-4">
-                      <h4 className="text-white font-bold mb-2 flex items-center gap-2">
-                        <span>🌅</span> Samedi
+                    <div className="bg-gradient-to-r from-amber-800/50 to-orange-700/50 rounded-lg p-4">
+                      <h4 className="text-amber-100 font-bold mb-2 flex items-center gap-2">
+                        <span>🌅</span> Samedi - Jour des Épreuves
                       </h4>
-                      <div className="space-y-1 text-gray-300 text-sm">
-                        <div>• Brunch/midi</div>
-                        <div>• Repas du soir</div>
-                        <div>• Petit snack surprise samedi soir...</div>
+                      <div className="space-y-1 text-amber-200 text-base">
+                        <div>• Banquet matinal de l'aube</div>
+                        <div>• Festin du crépuscule</div>
+                        <div>• Délice mystérieux de la nuit...</div>
                       </div>
                     </div>
-                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg p-4">
-                      <h4 className="text-white font-bold mb-2 flex items-center gap-2">
-                        <span>☀️</span> Dimanche
+                    <div className="bg-gradient-to-r from-amber-800/50 to-orange-700/50 rounded-lg p-4">
+                      <h4 className="text-amber-100 font-bold mb-2 flex items-center gap-2">
+                        <span>☀️</span> Dimanche - Jour de Renaissance
                       </h4>
-                      <div className="text-gray-300 text-sm">
-                        • Brunch du dimanche
+                      <div className="text-amber-200 text-base">
+                        • Banquet de la résurrection
                       </div>
                     </div>
                   </div>
-                  <div className="mt-4 p-3 bg-amber-900/20 rounded-lg border border-amber-500/30">
-                    <p className="text-amber-300 text-sm flex items-center gap-2">
-                      <span>☕</span> Du vrai café sera servi samedi et dimanche
-                      matin
+                  <div className="mt-4 p-3 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
+                    <p className="text-yellow-300 text-base flex items-center gap-2">
+                      <span>☕</span> L'élixir de réveil coulera samedi et
+                      dimanche à l'aube
                     </p>
                   </div>
                 </div>
 
                 {/* Drinks & Snacks Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                    <span>🥃</span> Boissons & Snacks
+                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                    <span>🥃</span> Élixirs & Provisions
                   </h3>
-                  <div className="space-y-3 text-gray-300 text-sm">
+                  <div className="space-y-3 text-amber-200 text-base">
                     <div className="flex items-start gap-3">
-                      <span className="text-red-400 font-bold">•</span>
+                      <span className="text-amber-400 font-bold text-lg">
+                        ⟡
+                      </span>
                       <span>
-                        Prenez votre propre alcool et vos petits "smarties" au
-                        besoin
+                        Apportez vos propres élixirs spiritueux et substances
+                        sacrées selon vos besoins
                       </span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-red-400 font-bold">•</span>
+                      <span className="text-amber-400 font-bold text-lg">
+                        ⟡
+                      </span>
                       <span>
-                        Vous ne devriez pas avoir faim mais si vous avez des
-                        craintes prenez quelques snacks
+                        La faim ne devrait pas vous tourmenter, mais les
+                        provisions de secours sont sages
                       </span>
                     </div>
                   </div>
@@ -293,45 +317,45 @@ function App() {
               {/* Organization & Planning Section */}
               <div className="md:col-span-2 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                    <span>📋</span> Organisation & Planification
+                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                    <span>📋</span> Cartographie du Campement
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-4 border border-blue-500/30">
-                      <h4 className="text-white font-bold mb-3 flex items-center gap-2">
-                        <span>🏠</span> Le plan des cabanes
+                    <div className="bg-gradient-to-br from-orange-900/60 via-amber-900/40 to-yellow-900/30 rounded-lg p-4 border border-orange-500/30 desert-shimmer">
+                      <h4 className="text-amber-100 font-bold mb-3 flex items-center gap-2">
+                        <span>🏕️</span> Carte des Refuges
                       </h4>
-                      <p className="text-gray-300 text-sm mb-3">
-                        Premiers arrivés, premiers servis (avec bien sûr la
-                        possibilité de demander des ajustements si besoin)
+                      <p className="text-amber-200 text-sm mb-3">
+                        Les premiers nomades choisiront leurs abris en premier
+                        (avec possibilité de négociation tribale si nécessaire)
                       </p>
                       <a
                         href="https://docs.google.com/spreadsheets/d/1owp2b-BvCQdu9yAnm4v9CxfwbOkYhrGA/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEe5kp3Hzx1t_anXPJvKS-C4qndkjy6QYIem5e_oJ7gGPOG-Ck5pGTtsjXcRTg_aem_2CGWcTeGsGwGV6jizjvjkA&gid=2115565243#gid=2115565243"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-sm font-medium desert-shimmer"
                       >
-                        <span>📊</span>
-                        Voir le plan des cabanes
+                        <span>🗺️</span>
+                        Consulter la carte des refuges
                       </a>
                     </div>
 
-                    <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-4 border border-green-500/30">
-                      <h4 className="text-white font-bold mb-3 flex items-center gap-2">
-                        <span>🚗</span> Véhicules et Covoiturage
+                    <div className="bg-gradient-to-br from-orange-900/60 via-amber-900/40 to-yellow-900/30 rounded-lg p-4 border border-amber-500/30 desert-shimmer">
+                      <h4 className="text-amber-100 font-bold mb-3 flex items-center gap-2">
+                        <span>🐪</span> Caravanes & Traversée
                       </h4>
-                      <p className="text-gray-300 text-sm mb-3">
-                        Le fichier pour enregistrer vos véhicules et organiser
-                        le covoiturage
+                      <p className="text-amber-200 text-sm mb-3">
+                        Registre des montures et organisation des caravanes pour
+                        la traversée du désert
                       </p>
                       <a
                         href="https://docs.google.com/spreadsheets/d/1js7uc1v2_TeCAqmCMr54lUw-S94QxQ-M/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEeNk3KWyZGr6R8KfAbUe2BKtAgY1XCpiR7ASr5pl00-bt6b-HT84Z8qSXB460_aem_cuDNvAXHEkLGyShE9LWWow&gid=504607157#gid=504607157"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-sm font-medium desert-shimmer"
                       >
-                        <span>🚙</span>
-                        Organiser le covoiturage
+                        <span>🏜️</span>
+                        Organiser les caravanes
                       </a>
                     </div>
                   </div>
@@ -343,32 +367,32 @@ function App() {
 
         {/* Timetable Section - Full Width */}
         <section className="space-y-6">
-          <h2 className="text-3xl font-black text-red-400 mb-8 text-center uppercase tracking-wider">
-            Table du temps
+          <h2 className="text-3xl font-black text-amber-400 mb-8 text-center uppercase tracking-wider font-orbitron">
+            Chroniques du Temps Sacré
           </h2>
-          <div className="bg-gradient-to-b from-gray-900/80 to-black/80 border border-gray-700 rounded-lg p-6 backdrop-blur-sm">
+          <div className="bg-gradient-to-b from-amber-900/80 to-stone-900/80 border border-amber-700/50 rounded-lg p-6 backdrop-blur-sm spice-glow">
             <div className="overflow-x-auto pr-4">
               {/* Friday Section */}
               <div className="mb-8">
-                <h3 className="text-2xl font-black text-red-400 mb-4 uppercase tracking-wider flex items-center gap-3">
+                <h3 className="text-2xl font-black text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-3 font-audiowide">
                   <span className="text-3xl">🔥</span>
-                  Vendredi 20 Septembre
+                  Vendredi 20 Septembre - Nuit de l'Éveil
                   <span className="text-3xl">🔥</span>
                 </h3>
                 <table className="w-full mb-6 min-w-[600px]">
                   <thead>
-                    <tr className="border-b border-gray-600">
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-24">
-                        Horaire
+                    <tr className="border-b border-amber-600/50">
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-24 font-orbitron">
+                        Heure Sacrée
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-64">
-                        Artiste
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-64 font-orbitron">
+                        Gardien des Rythmes
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-32">
-                        Genre
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-32 font-orbitron">
+                        Essence
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-36">
-                        Sur les réseaux
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-36 font-orbitron">
+                        Présence Digitale
                       </th>
                     </tr>
                   </thead>
@@ -449,25 +473,25 @@ function App() {
 
               {/* Saturday Section */}
               <div>
-                <h3 className="text-2xl font-black text-red-400 mb-4 uppercase tracking-wider flex items-center gap-3">
+                <h3 className="text-2xl font-black text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-3 font-audiowide">
                   <span className="text-3xl">🔥</span>
-                  Samedi 21 Septembre
+                  Samedi 21 Septembre - Jour de la Renaissance
                   <span className="text-3xl">🔥</span>
                 </h3>
                 <table className="w-full min-w-[600px]">
                   <thead>
-                    <tr className="border-b border-gray-600">
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-24">
-                        Horaire
+                    <tr className="border-b border-amber-600/50">
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-24 font-orbitron">
+                        Heure Sacrée
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-64">
-                        Artiste
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-64 font-orbitron">
+                        Gardien des Rythmes
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-32">
-                        Genre
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-32 font-orbitron">
+                        Essence
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-36">
-                        Sur les réseaux
+                      <th className="text-left py-3 px-4 text-amber-400 font-bold uppercase tracking-wider w-36 font-orbitron">
+                        Présence Digitale
                       </th>
                     </tr>
                   </thead>
@@ -559,7 +583,7 @@ function App() {
         >
           {/* Backdrop */}
           <div
-            className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 ${
+            className={`fixed inset-0 bg-gradient-to-br from-amber-950/90 via-stone-900/90 to-orange-950/90 backdrop-blur-sm transition-all duration-300 ${
               isModalVisible ? "opacity-100" : "opacity-0"
             }`}
             onClick={closeModal}
@@ -572,7 +596,7 @@ function App() {
           >
             {/* Modal Content */}
             <div
-              className={`relative max-w-2xl w-full bg-gradient-to-br from-gray-900 to-black border border-red-500/30 rounded-xl p-4 md:p-8 shadow-2xl shadow-red-500/20 transition-all duration-300 modal-content ${
+              className={`relative max-w-2xl w-full bg-gradient-to-br from-amber-900 to-stone-900 border border-amber-500/30 rounded-xl p-4 md:p-8 shadow-2xl spice-glow transition-all duration-300 modal-content desert-shimmer ${
                 isModalVisible
                   ? "opacity-100 scale-100 translate-y-0"
                   : "opacity-0 scale-95 translate-y-4"
@@ -582,7 +606,7 @@ function App() {
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 md:top-4 md:right-4 text-gray-400 hover:text-red-400 transition-colors text-2xl md:text-3xl z-10 w-8 h-8 md:w-auto md:h-auto flex items-center justify-center"
+                className="absolute top-3 right-3 md:top-4 md:right-4 text-amber-300 hover:text-amber-100 transition-colors text-2xl md:text-3xl z-10 w-8 h-8 md:w-auto md:h-auto flex items-center justify-center"
                 aria-label="Fermer la fenêtre"
               >
                 ×
@@ -602,24 +626,24 @@ function App() {
                         <img
                           src={artist.image}
                           alt={artist.name}
-                          className="w-59 h-59 sm:w-59 sm:h-59 rounded-full object-cover border-2 border-red-500/50"
+                          className="w-59 h-59 sm:w-59 sm:h-59 rounded-full object-cover border-2 border-amber-500/50 spice-glow"
                         />
-                        <div className="absolute inset-0 rounded-full bg-red-500/20 animate-pulse"></div>
+                        <div className="absolute inset-0 rounded-full bg-amber-500/20 animate-pulse"></div>
                       </div>
                       <div className="text-center">
-                        <h2 className="text-2xl sm:text-3xl font-black text-red-400 mb-2">
+                        <h2 className="text-2xl sm:text-3xl font-black text-amber-400 mb-2 font-orbitron">
                           {artist.name}
                         </h2>
-                        <p className="text-lg sm:text-xl text-gray-300 font-medium">
+                        <p className="text-lg sm:text-xl text-amber-200 font-medium font-exo">
                           {artist.genre}
                         </p>
                       </div>
                     </div>
 
                     {/* Performance Schedule */}
-                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-3 sm:p-4">
-                      <h3 className="text-base sm:text-lg font-bold text-red-400 mb-3 uppercase tracking-wider">
-                        Horaires de Performance
+                    <div className="bg-gradient-to-r from-amber-800/50 to-stone-800/50 rounded-lg p-3 sm:p-4 desert-shimmer">
+                      <h3 className="text-base sm:text-lg font-bold text-amber-400 mb-3 uppercase tracking-wider font-audiowide">
+                        Rituels de Performance
                       </h3>
                       <div className="space-y-2">
                         {artistSets.map((set, idx) => (
@@ -628,14 +652,14 @@ function App() {
                             className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4"
                           >
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                              <span className="text-red-300 font-bold uppercase text-sm sm:text-base">
+                              <span className="text-amber-300 font-bold uppercase text-sm sm:text-base">
                                 {set.day}
                               </span>
-                              <span className="font-mono text-white text-sm sm:text-base">
+                              <span className="font-mono text-amber-100 text-sm sm:text-base">
                                 {set.startTime} → {set.endTime}
                               </span>
                             </div>
-                            <span className="text-red-400 font-bold text-sm sm:text-base">
+                            <span className="text-amber-400 font-bold text-sm sm:text-base">
                               {set.duration}
                             </span>
                           </div>
@@ -645,10 +669,10 @@ function App() {
 
                     {/* Artist Description */}
                     <div>
-                      <h3 className="text-lg font-bold text-red-400 mb-3 uppercase tracking-wider">
-                        À Propos
+                      <h3 className="text-lg font-bold text-amber-400 mb-3 uppercase tracking-wider font-audiowide">
+                        Essence Mystique
                       </h3>
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-amber-200 leading-relaxed">
                         {artist.description}
                       </p>
                     </div>
@@ -656,8 +680,8 @@ function App() {
                     {/* Social Links */}
                     {artist.socialLinks && (
                       <div>
-                        <h3 className="text-lg font-bold text-red-400 mb-3 uppercase tracking-wider">
-                          Sur les réseaux
+                        <h3 className="text-lg font-bold text-amber-400 mb-3 uppercase tracking-wider font-audiowide">
+                          Portails Digitaux
                         </h3>
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                           {artist.socialLinks.soundcloud && (
@@ -665,7 +689,7 @@ function App() {
                               href={artist.socialLinks.soundcloud}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg hover:from-orange-500 hover:to-orange-400 transition-all duration-300 font-medium text-center"
+                              className="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg hover:from-orange-500 hover:to-amber-400 transition-all duration-300 font-medium text-center desert-shimmer"
                             >
                               <SoundCloudIcon className="w-6 h-6" />
                               SoundCloud
@@ -676,7 +700,7 @@ function App() {
                               href={artist.socialLinks.instagram}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-pink-600 to-pink-500 text-white rounded-lg hover:from-pink-500 hover:to-pink-400 transition-all duration-300 font-medium text-center"
+                              className="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-r from-pink-600 to-rose-500 text-white rounded-lg hover:from-pink-500 hover:to-rose-400 transition-all duration-300 font-medium text-center desert-shimmer"
                             >
                               <InstagramIcon className="w-6 h-6" />
                               Instagram
