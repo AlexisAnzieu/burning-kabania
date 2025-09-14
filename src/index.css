@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Custom fonts and base styles */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=Cinzel:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* Removed heavy animations for better performance */
+
+/* Removed heavy animations for better performance */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #dc2626, #7f1d1d);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ef4444, #991b1b);
+}
+
+/* Loading animation for images */
+img {
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Enhanced hover effects - simplified */
+.artist-card-hover {
+  transition: all 0.2s ease;
+}
+
+.artist-card-hover:hover {
+  transform: translateY(-1px);
+}
+
+/* Time slot animations - simplified */
+.time-slot {
+  transition: background-color 0.2s ease;
+}
+
+/* Removed heavy animations for better performance */
+
+/* Removed heavy animations for better performance */
+
+/* Typography improvements */
+.font-metal {
+  font-family: 'Metal Mania', cursive;
+}
+
+.font-creepy {
+  font-family: 'Creepster', cursive;
+}
+
+/* Dark theme selections */
+::selection {
+  background: rgba(220, 38, 38, 0.3);
+  color: white;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
