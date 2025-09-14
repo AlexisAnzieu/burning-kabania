@@ -121,6 +121,17 @@ function App() {
       {/* Hero Section */}
       <header className="relative z-10 w-full py-8 md:py-6 flex flex-col items-center">
         <div className="text-center mb-2">
+          {/* Hero Image */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              <img
+                src="/og.png"
+                alt="Burning Kabania"
+                className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-red-500/50 shadow-2xl shadow-red-500/30"
+              />
+            </div>
+          </div>
+
           <h1 className="text-3xl sm:text-6xl md:text-7xl font-black text-transparent bg-gradient-to-r from-red-500 via-orange-500 to-red-600 bg-clip-text drop-shadow-2xl tracking-wider uppercase mb-4">
             Burning Kabania
           </h1>
