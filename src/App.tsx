@@ -242,8 +242,8 @@ function App() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
-                    <p className="text-emerald-300 text-lg">
+                  <div className="mt-3 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+                    <p className="text-blue-300 text-lg">
                       💧 Le désert nous enseigne la préservation - évitez le
                       plastique !
                     </p>
