@@ -394,16 +394,16 @@ function App() {
                 return (
                   <div className="space-y-6">
                     {/* Artist Header */}
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 pt-4">
+                    <div className="flex flex-col items-center gap-6 pt-4">
                       <div className="relative">
                         <img
                           src={artist.image}
                           alt={artist.name}
-                          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-red-500/50"
+                          className="w-59 h-59 sm:w-59 sm:h-59 rounded-full object-cover border-2 border-red-500/50"
                         />
                         <div className="absolute inset-0 rounded-full bg-red-500/20 animate-pulse"></div>
                       </div>
-                      <div className="text-center sm:text-left">
+                      <div className="text-center">
                         <h2 className="text-2xl sm:text-3xl font-black text-red-400 mb-2">
                           {artist.name}
                         </h2>
