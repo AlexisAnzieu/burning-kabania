@@ -148,7 +148,199 @@ function App() {
         </div>
       </header>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-12 pt-10">
+        {/* Informations Principales Section */}
+        <section className="space-y-6 mb-12">
+          <h2 className="text-3xl font-black text-red-400 mb-8 text-center uppercase tracking-wider">
+            Informations Principales
+          </h2>
+          <div className="bg-gradient-to-b from-gray-900/80 to-black/80 border border-gray-700 rounded-lg p-6 md:p-8 backdrop-blur-sm">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Left Column - Dress Codes & Activities */}
+              <div className="space-y-6">
+                {/* Dress Code Section */}
+                <div>
+                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    <span>👗</span> Consignes tenues
+                  </h3>
+                  <div className="space-y-3 text-gray-300">
+                    <div className="flex items-start gap-3">
+                      <span className="text-red-400 font-bold">•</span>
+                      <span>
+                        <strong className="text-white">Vendredi soir :</strong>{" "}
+                        sortez vos tenues noires Burning Man 🖤
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-red-400 font-bold">•</span>
+                      <span>
+                        <strong className="text-white">Samedi journée :</strong>{" "}
+                        misez sur le confort, des activités vous attendent !
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-red-400 font-bold">•</span>
+                      <span>
+                        <strong className="text-white">Samedi soir :</strong>{" "}
+                        place à l'imagination 🤪
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-4 bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-lg border border-red-500/30">
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      <strong className="text-red-400">
+                        Esprit Burning Man :
+                      </strong>{" "}
+                      osez les looks les plus improbables, libérez votre
+                      créativité, portez enfin ce que vous avez toujours rêvé
+                      d'oser mettre !
+                    </p>
+                  </div>
+                </div>
+
+                {/* What to Bring Section */}
+                <div>
+                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    <span>🎒</span> À apporter
+                  </h3>
+                  <div className="text-xs text-gray-400 mb-3 italic">
+                    Principe du "Leave no trace" comme au Burning Man : tout ce
+                    que vous amenez doit repartir avec vous
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 text-sm">
+                    {[
+                      "Literie, couverture ou sac de couchage",
+                      "Oreiller ou taie d'oreiller (coussins disponibles sur place)",
+                      "Serviette de bain",
+                      "Trousse de toilette",
+                      "Lampe frontale ou lampe de poche (pour circuler la nuit)",
+                      "Gourde réutilisable 💧 (l'eau est potable)",
+                      "Pour les repas : assiette + couverts + gobelet réutilisable",
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-red-400 text-xs mt-1">✓</span>
+                        <span className="text-gray-300">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-3 p-3 bg-green-900/20 rounded-lg border border-green-500/30">
+                    <p className="text-green-300 text-sm">
+                      💧 Merci d'éviter les bouteilles en plastique !
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Food & Drinks */}
+              <div className="space-y-6">
+                {/* Meals Section */}
+                <div>
+                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    <span>🍽️</span> Repas inclus (service traiteur)
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg p-4">
+                      <h4 className="text-white font-bold mb-2 flex items-center gap-2">
+                        <span>🌅</span> Samedi
+                      </h4>
+                      <div className="space-y-1 text-gray-300 text-sm">
+                        <div>• Brunch/midi</div>
+                        <div>• Repas du soir</div>
+                        <div>• Petit snack surprise samedi soir...</div>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg p-4">
+                      <h4 className="text-white font-bold mb-2 flex items-center gap-2">
+                        <span>☀️</span> Dimanche
+                      </h4>
+                      <div className="text-gray-300 text-sm">
+                        • Brunch du dimanche
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-amber-900/20 rounded-lg border border-amber-500/30">
+                    <p className="text-amber-300 text-sm flex items-center gap-2">
+                      <span>☕</span> Du vrai café sera servi samedi et dimanche
+                      matin
+                    </p>
+                  </div>
+                </div>
+
+                {/* Drinks & Snacks Section */}
+                <div>
+                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    <span>🥃</span> Boissons & Snacks
+                  </h3>
+                  <div className="space-y-3 text-gray-300 text-sm">
+                    <div className="flex items-start gap-3">
+                      <span className="text-red-400 font-bold">•</span>
+                      <span>
+                        Prenez votre propre alcool et vos petits "smarties" au
+                        besoin
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-red-400 font-bold">•</span>
+                      <span>
+                        Vous ne devriez pas avoir faim mais si vous avez des
+                        craintes prenez quelques snacks
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Organization & Planning Section */}
+              <div className="md:col-span-2 space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    <span>📋</span> Organisation & Planification
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+                        <span>🏠</span> Le plan des cabanes
+                      </h4>
+                      <p className="text-gray-300 text-sm mb-3">
+                        Premiers arrivés, premiers servis (avec bien sûr la
+                        possibilité de demander des ajustements si besoin)
+                      </p>
+                      <a
+                        href="https://docs.google.com/spreadsheets/d/1owp2b-BvCQdu9yAnm4v9CxfwbOkYhrGA/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEe5kp3Hzx1t_anXPJvKS-C4qndkjy6QYIem5e_oJ7gGPOG-Ck5pGTtsjXcRTg_aem_2CGWcTeGsGwGV6jizjvjkA&gid=2115565243#gid=2115565243"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                      >
+                        <span>📊</span>
+                        Voir le plan des cabanes
+                      </a>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-4 border border-green-500/30">
+                      <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+                        <span>🚗</span> Véhicules et Covoiturage
+                      </h4>
+                      <p className="text-gray-300 text-sm mb-3">
+                        Le fichier pour enregistrer vos véhicules et organiser
+                        le covoiturage
+                      </p>
+                      <a
+                        href="https://docs.google.com/spreadsheets/d/1js7uc1v2_TeCAqmCMr54lUw-S94QxQ-M/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEeNk3KWyZGr6R8KfAbUe2BKtAgY1XCpiR7ASr5pl00-bt6b-HT84Z8qSXB460_aem_cuDNvAXHEkLGyShE9LWWow&gid=504607157#gid=504607157"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                      >
+                        <span>🚙</span>
+                        Organiser le covoiturage
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Timetable Section - Full Width */}
         <section className="space-y-6">
           <h2 className="text-3xl font-black text-red-400 mb-8 text-center uppercase tracking-wider">
