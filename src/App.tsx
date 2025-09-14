@@ -155,16 +155,16 @@ function App() {
                 <table className="w-full mb-6 min-w-[600px]">
                   <thead>
                     <tr className="border-b border-gray-600">
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-24">
                         Horaire
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-64">
                         Artiste
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-32">
                         Genre
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-36">
                         Sur les réseaux
                       </th>
                     </tr>
@@ -254,16 +254,16 @@ function App() {
                 <table className="w-full min-w-[600px]">
                   <thead>
                     <tr className="border-b border-gray-600">
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-24">
                         Horaire
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-64">
                         Artiste
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-32">
                         Genre
                       </th>
-                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider">
+                      <th className="text-left py-3 px-4 text-red-400 font-bold uppercase tracking-wider w-36">
                         Sur les réseaux
                       </th>
                     </tr>
