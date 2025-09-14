@@ -157,7 +157,7 @@ function App() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 pb-12 pt-10">
         {/* Informations Principales Section */}
         <section className="space-y-6 mb-12">
-          <h2 className="text-3xl font-black text-amber-400 mb-8 text-center uppercase tracking-wider font-orbitron">
+          <h2 className="text-4xl font-black text-amber-400 mb-8 text-center uppercase tracking-wider font-orbitron">
             Codex du Désert
           </h2>
           <div className="bg-gradient-to-b from-amber-900/80 to-stone-900/80 border border-amber-700/50 rounded-lg p-6 md:p-8 backdrop-blur-sm">
@@ -166,15 +166,15 @@ function App() {
               <div className="space-y-6">
                 {/* Dress Code Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
                     <span>🏜️</span> Tenues du Désert
                   </h3>
-                  <div className="space-y-3 text-amber-200 text-base">
+                  <div className="space-y-3 text-amber-200 text-lg">
                     <div className="flex items-start gap-3">
                       <span className="text-amber-400 font-bold text-lg">
                         ⚡
                       </span>
-                      <span className="text-base">
+                      <span className="text-lg">
                         <strong className="text-amber-100">
                           Vendredi soir :
                         </strong>{" "}
@@ -185,7 +185,7 @@ function App() {
                       <span className="text-amber-400 font-bold text-lg">
                         ⚡
                       </span>
-                      <span className="text-base">
+                      <span className="text-lg">
                         <strong className="text-amber-100">
                           Samedi journée :
                         </strong>{" "}
@@ -197,7 +197,7 @@ function App() {
                       <span className="text-amber-400 font-bold text-lg">
                         ⚡
                       </span>
-                      <span className="text-base">
+                      <span className="text-lg">
                         <strong className="text-amber-100">
                           Samedi soir :
                         </strong>{" "}
@@ -206,7 +206,7 @@ function App() {
                     </div>
                   </div>
                   <div className="mt-4 p-4 bg-gradient-to-r from-amber-900/30 to-orange-900/30 rounded-lg border border-amber-500/30">
-                    <p className="text-amber-200 text-base leading-relaxed">
+                    <p className="text-amber-200 text-lg leading-relaxed">
                       <strong className="text-amber-300">
                         Esprit Burning Man :
                       </strong>{" "}
@@ -219,14 +219,14 @@ function App() {
 
                 {/* What to Bring Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
                     <span>🎒</span> Provisions du Nomade
                   </h3>
-                  <div className="text-sm text-amber-300 mb-3 italic">
+                  <div className="text-base text-amber-300 mb-3 italic">
                     Principe du "Leave no trace" - Comme dans le désert sacré :
                     tout ce qui entre dans l'oasis doit en ressortir
                   </div>
-                  <div className="grid grid-cols-1 gap-2 text-base">
+                  <div className="grid grid-cols-1 gap-2 text-lg">
                     {[
                       "Literie du voyageur, couverture ou sac de couchage",
                       "Oreiller du rêveur ou taie d'oreiller (coussins disponibles dans l'oasis)",
@@ -238,12 +238,12 @@ function App() {
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2">
                         <span className="text-amber-400 text-sm mt-1">⟡</span>
-                        <span className="text-amber-200 text-base">{item}</span>
+                        <span className="text-amber-200 text-lg">{item}</span>
                       </div>
                     ))}
                   </div>
                   <div className="mt-3 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
-                    <p className="text-emerald-300 text-base">
+                    <p className="text-emerald-300 text-lg">
                       💧 Le désert nous enseigne la préservation - évitez le
                       plastique !
                     </p>
@@ -255,7 +255,7 @@ function App() {
               <div className="space-y-6">
                 {/* Meals Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
                     <span>🍽️</span> Festins de l'Oasis
                   </h3>
                   <div className="space-y-3">
@@ -263,7 +263,7 @@ function App() {
                       <h4 className="text-amber-100 font-bold mb-2 flex items-center gap-2">
                         <span>🌅</span> Samedi - Jour des Épreuves
                       </h4>
-                      <div className="space-y-1 text-amber-200 text-base">
+                      <div className="space-y-1 text-amber-200 text-lg">
                         <div>• Banquet matinal de l'aube</div>
                         <div>• Festin du crépuscule</div>
                         <div>• Délice mystérieux de la nuit...</div>
@@ -273,13 +273,13 @@ function App() {
                       <h4 className="text-amber-100 font-bold mb-2 flex items-center gap-2">
                         <span>☀️</span> Dimanche - Jour de Renaissance
                       </h4>
-                      <div className="text-amber-200 text-base">
+                      <div className="text-amber-200 text-lg">
                         • Banquet de la résurrection
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 p-3 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
-                    <p className="text-yellow-300 text-base flex items-center gap-2">
+                    <p className="text-yellow-300 text-lg flex items-center gap-2">
                       <span>☕</span> L'élixir de réveil coulera samedi et
                       dimanche à l'aube
                     </p>
@@ -288,10 +288,10 @@ function App() {
 
                 {/* Drinks & Snacks Section */}
                 <div>
-                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
                     <span>🥃</span> Élixirs & Provisions
                   </h3>
-                  <div className="space-y-3 text-amber-200 text-base">
+                  <div className="space-y-3 text-amber-200 text-lg">
                     <div className="flex items-start gap-3">
                       <span className="text-amber-400 font-bold text-lg">
                         ⟡
@@ -317,7 +317,7 @@ function App() {
               {/* Organization & Planning Section */}
               <div className="md:col-span-2 space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4 uppercase tracking-wider flex items-center gap-2 font-audiowide">
                     <span>📋</span> Cartographie du Campement
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
@@ -325,7 +325,7 @@ function App() {
                       <h4 className="text-amber-100 font-bold mb-3 flex items-center gap-2">
                         <span>🏕️</span> Carte des Refuges
                       </h4>
-                      <p className="text-amber-200 text-sm mb-3">
+                      <p className="text-amber-200 text-base mb-3">
                         Les premiers nomades choisiront leurs abris en premier
                         (avec possibilité de négociation tribale si nécessaire)
                       </p>
@@ -333,7 +333,7 @@ function App() {
                         href="https://docs.google.com/spreadsheets/d/1owp2b-BvCQdu9yAnm4v9CxfwbOkYhrGA/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEe5kp3Hzx1t_anXPJvKS-C4qndkjy6QYIem5e_oJ7gGPOG-Ck5pGTtsjXcRTg_aem_2CGWcTeGsGwGV6jizjvjkA&gid=2115565243#gid=2115565243"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-sm font-medium desert-shimmer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600  to-yellow-800 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-base font-medium desert-shimmer"
                       >
                         <span>🗺️</span>
                         Consulter la carte des refuges
@@ -344,7 +344,7 @@ function App() {
                       <h4 className="text-amber-100 font-bold mb-3 flex items-center gap-2">
                         <span>🐪</span> Caravanes & Traversée
                       </h4>
-                      <p className="text-amber-200 text-sm mb-3">
+                      <p className="text-amber-200 text-base mb-3">
                         Registre des montures et organisation des caravanes pour
                         la traversée du désert
                       </p>
@@ -352,7 +352,7 @@ function App() {
                         href="https://docs.google.com/spreadsheets/d/1js7uc1v2_TeCAqmCMr54lUw-S94QxQ-M/edit?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExUGl5M0Y3VWdBQktrd2ZvSQEeNk3KWyZGr6R8KfAbUe2BKtAgY1XCpiR7ASr5pl00-bt6b-HT84Z8qSXB460_aem_cuDNvAXHEkLGyShE9LWWow&gid=504607157#gid=504607157"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-500 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-sm font-medium desert-shimmer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-600 to-yellow-800 hover:from-orange-500 hover:to-amber-400 text-white rounded-lg transition-colors duration-200 text-base font-medium desert-shimmer"
                       >
                         <span>🏜️</span>
                         Organiser les caravanes
