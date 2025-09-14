@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=Cinzel:wght@400;600;700&display=swap');
+
 @import "tailwindcss";
 
 /* Custom fonts and base styles */
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=Cinzel:wght@400;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,6 +13,16 @@ body {
   font-family: 'Cinzel', serif;
   background: #000;
   overflow-x: hidden;
+  /* Improve scrolling performance on mobile */
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+/* Ensure body scroll is hidden when modal is open */
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
 }
 
 /* Removed heavy animations for better performance */
@@ -83,4 +94,63 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid #dc2626;
   outline-offset: 2px;
+}
+
+/* Modal scrolling improvements */
+.modal-container {
+  /* Smooth scrolling on all devices */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Prevent scroll chaining on mobile */
+  overscroll-behavior: contain;
+}
+
+/* Ensure modal content is properly sized on mobile */
+@media (max-height: 640px) {
+  .modal-content {
+    margin: 1rem 0;
+  }
+}
+
+/* Additional mobile improvements */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 0.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Table horizontal scrolling on mobile */
+  .overflow-x-auto {
+    /* Smooth horizontal scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Show scrollbar on mobile for better UX */
+    scrollbar-width: thin;
+  }
+  
+  /* Make table cells more compact on mobile */
+  table td, table th {
+    white-space: nowrap;
+  }
+}
+
+/* Desktop table improvements */
+@media (min-width: 769px) {
+  /* Prevent layout shifts on hover */
+  table tr {
+    /* Reserve space for hover effects */
+    box-sizing: border-box;
+  }
+  
+  /* Ensure table container has enough padding to prevent scrollbars */
+  .overflow-x-auto {
+    padding-right: 1rem;
+    /* Hide scrollbar on desktop unless actually needed */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
 }
