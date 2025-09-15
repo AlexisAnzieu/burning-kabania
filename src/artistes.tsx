@@ -11,7 +11,7 @@ export const artists: Record<string, Artist> = {
   freezer: {
     id: "freezer",
     name: "(fr)eezer",
-    genre: "Genie des foules electique",
+    genre: "Génie des foules éclectique",
     description:
       "Entré dans le monde électronique depuis une vingtaine d'années, (FR)eezer a tout d'abord débuté sa plongée abyssale en interviewant des artistes pour le compte de webzines parisiens. Il a ensuite cofondé le label de musique versaillais Soundmotion et s'est découvert une passion pour le DJing par envie de partager ses trouvailles aux autres. Une passion chronophage donc, aboutissant à des sets percutants de nouveautés électroniques cosmopolites.",
     image: "/freezer.png",
@@ -42,7 +42,7 @@ export const artists: Record<string, Artist> = {
   will: {
     id: "will",
     name: "Anjers",
-    genre: "Genie des foules eclectique",
+    genre: "Génie des foules éclectique",
     description: "Deep. Underground. Mystique.",
     image: "/anjers.png",
     socialLinks: {
@@ -60,7 +60,7 @@ export const artists: Record<string, Artist> = {
   kroma: {
     id: "kroma",
     name: "Kroma",
-    genre: "Techno",
+    genre: "Techno aléatoire",
     description:
       "Kroma est né après un anniversaire pas si arrosé, il a d'abord glissé sur les pistes risquées du karaoké avant de dénicher la lumière après une catharsis dans les sous-sols Montréalais. Il s'exprime à travers des mélodies envoûtantes et des kicks groovy qui rythment la foule. Il vous invite dans un voyage sonore intense et rapide, soigneusement adapté à son public. Sa passion pour la musique électronique en tout genre (trance, mental, hypno, indus ainsi que leurs homologues plus hard) se mêle dans une harmonie puissante, animée par un seul but : inciter vos corps à danser jusqu'à l'aube.",
     image: "/kroma.png",
