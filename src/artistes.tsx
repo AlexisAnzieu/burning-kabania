@@ -11,7 +11,7 @@ export const artists: Record<string, Artist> = {
   freezer: {
     id: "freezer",
     name: "(fr)eezer",
-    genre: "Genie des foules electique",
+    genre: "Genie des foules eclectique",
     description:
       "Entré dans le monde électronique depuis une vingtaine d'années, (FR)eezer a tout d'abord débuté sa plongée abyssale en interviewant des artistes pour le compte de webzines parisiens. Il a ensuite cofondé le label de musique versaillais Soundmotion et s'est découvert une passion pour le DJing par envie de partager ses trouvailles aux autres. Une passion chronophage donc, aboutissant à des sets percutants de nouveautés électroniques cosmopolites.",
     image: "/freezer.png",
